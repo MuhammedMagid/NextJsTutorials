@@ -1,0 +1,47 @@
+.section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* This will target the Post components */
+.section > * {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.section > *:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .section {
+    gap: 1rem;
+  }
+  
+  .section > * {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    flex-direction: column;
+  }
+  
+  .section > * {
+    min-width: 100%;
+  }
+}
