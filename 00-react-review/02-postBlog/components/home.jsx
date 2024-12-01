@@ -1,8 +1,10 @@
 import { MdCreate, MdTrendingUp, MdGroup } from 'react-icons/md';
 import styles from './home.module.css';
 
-const Home = ({ onStartReading }) => {
+const Home = ({ isShowHome, onStartReading }) => {
     return (
+    <>
+    {isShowHome &&
         <div className={styles.container}>
             <section className={styles.hero}>
                 <h1 className={styles.title}>Welcome to Muhammed Blog</h1>
@@ -48,7 +50,11 @@ const Home = ({ onStartReading }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    
+    }
+    </>
+);
+
+}
 
 export default Home;

@@ -6,32 +6,43 @@ import { useState } from "react";
 function App() {
   const [isPosting, setIsPosting] = useState(false);
   const [isReadingPost, setIsReadingPost] = useState(false);
-  const [showHome, setShowHome] = useState(true);
+  const [isShowHome, setShowHome] = useState(true);
 
   const togglePosting = () => {
     setIsPosting(!isPosting);
     setShowHome(false);
+    //setIsReadingPost(false);
   };
 
   const toggleReadingPost = () => {
-    setIsReadingPost(!isReadingPost);
-    setShowHome(false);
-  };
-
-  const startReading = () => {
     setIsReadingPost(true);
     setShowHome(false);
+    setIsPosting(false);
+  };
+
+  const onToggleHome = () => {
+    setShowHome(true);
+    setIsPosting(false);
+    setIsReadingPost(false);  
+  };
+
+  const onStartReading = () => {
+    setShowHome(false);
+    setIsPosting(false);
+    setIsReadingPost(true);
   };
 
   return(
     <>
-      <Header onTogglePosting={togglePosting} onToggleReadingPost={toggleReadingPost}/>
+      <Header onTogglePosting={togglePosting} onToggleReadingPost={toggleReadingPost} onToggleHome={onToggleHome}/>
+
       <main>
-        {showHome && <Home onStartReading={startReading}/>}
+        <Home isShowHome={isShowHome} onStartReading={onStartReading} />
+
         <PostList 
           isPosting={isPosting} 
           isReadingPost={isReadingPost} 
-          onClose={() => setIsPosting(false)}
+          onToggleReadingPost={toggleReadingPost}
         />
       </main>
     </>

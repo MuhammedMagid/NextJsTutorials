@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import styles from './createPost.module.css';
 
-const CreatePost = () => {
+const CreatePost = ( {onAddPost , postsHandler}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle post creation here
-        console.log({ title, content });
-        setTitle('');
-        setContent('');
+        const postData = {
+            title: title,
+            content: content
+        };
+        onAddPost();
+        postsHandler(postData);
     };
 
     return (
