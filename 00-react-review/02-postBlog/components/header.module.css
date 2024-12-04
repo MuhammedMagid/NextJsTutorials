@@ -1,107 +1,73 @@
 .header {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--background-light);
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.logo svg {
-    color: var(--accent-color);
+.header:hover {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .nav {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
     gap: 1.5rem;
+    align-items: center;
 }
 
 .navButton {
+    background: none;
+    border: none;
+    color: var(--background-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--background-light);
-    background: none;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .navButton:hover {
     background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.navButton:active {
+    transform: translateY(0);
 }
 
 .navButton svg {
     color: var(--accent-color);
+    font-size: 1.2rem;
 }
 
+/* Active state for buttons */
 .active {
     background: rgba(139, 92, 246, 0.1);
     color: var(--accent-color);
 }
 
-/* Mobile menu button */
-.menuButton {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--background-light);
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-/* Responsive Design */
+/* Responsive design */
 @media (max-width: 768px) {
     .header {
         padding: 1rem;
     }
 
-    .menuButton {
-        display: block;
-    }
-
     .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(30, 41, 59, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 1rem;
         gap: 1rem;
     }
 
-    .nav.open {
-        display: flex;
-    }
-
     .navButton {
-        width: 100%;
-        justify-content: center;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
     }
 }

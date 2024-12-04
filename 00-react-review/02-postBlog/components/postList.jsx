@@ -1,25 +1,16 @@
 import styles from "./postList.module.css"
 import Post from "./post";
-import CreatePost from "./createPost";
 import { useState } from "react";
 
+import { useLoaderData } from "react-router-dom";
 
 
+const PostList = ()=>{
 
-const PostList = ({isPosting, isReadingPost, onToggleReadingPost })=>{
-
-  const [posts, setPosts] = useState([]);
-
-  const postsHandler = (postData) => {
-    setPosts((prevPosts)=>{return [...prevPosts, postData]});
-  };
+  const posts = useLoaderData();
 
   return(
      <>
-      {isPosting && <CreatePost  onAddPost={onToggleReadingPost} postsHandler={postsHandler}/>}
-
-      {isReadingPost&&
-
       <section className={styles["section"]}>  
           
         {posts.length === 0 && (
@@ -32,7 +23,7 @@ const PostList = ({isPosting, isReadingPost, onToggleReadingPost })=>{
         <Post key={index} title={post.title} content={post.content} />
       ))}
       </section>
-      }    
+      
 
       {/* These posts are hardcoded for now */
       /* In the future, we can fetch them from a database or API 

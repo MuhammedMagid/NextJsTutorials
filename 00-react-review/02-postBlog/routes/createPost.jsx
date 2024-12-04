@@ -1,19 +1,14 @@
 import { useState } from 'react';
-import styles from './createPost.module.css';
+import styles from '../components/createPost.module.css';
 
-const CreatePost = ( {onAddPost , postsHandler}) => {
+
+const CreatePost = ( ) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle post creation here
-        const postData = {
-            title: title,
-            content: content
-        };
-        onAddPost();
-        postsHandler(postData);
     };
 
     return (
@@ -48,5 +43,6 @@ const CreatePost = ( {onAddPost , postsHandler}) => {
         </div>
     );
 };
+
 
 export default CreatePost;

@@ -1,21 +1,26 @@
 import { MdCreate, MdTrendingUp, MdGroup } from 'react-icons/md';
 import styles from './home.module.css';
+import { Link } from 'react-router-dom';
 
-const Home = ({ isShowHome, onStartReading }) => {
+const Home = () => {
     return (
     <>
-    {isShowHome &&
+    {true &&
         <div className={styles.container}>
             <section className={styles.hero}>
                 <h1 className={styles.title}>Welcome to Muhammed Blog</h1>
                 <p className={styles.subtitle}>
                     Discover the latest insights in web development, React, and modern JavaScript
                 </p>
+
+                <Link to="/posts">
                 <div className={styles.cta}>
-                    <button onClick={onStartReading} className={styles.button}>
+                    <button className={styles.button}>
                         Start Reading
                     </button>
                 </div>
+                </Link>
+
             </section>
 
             <div className={styles.features}>

@@ -1,27 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import Posts, { loader as jsonPostsLoader } from '../routes/posts.jsx'
 import './index.css'
 
-import CreatePost from "../components/createPost.jsx";
+import CreatePost from "../routes/createPost.jsx";
 import PostList from "../components/postList.jsx";
+import MainLayout from "../routes/mainLayout.jsx";
+import Home from "../components/home.jsx";
 
 import {RouterProvider , createBrowserRouter  } from "react-router-dom";
 
 
   const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/createpost",
-    element: <CreatePost />,
-  },
-  {
-    path: "/postslist",
-    element: <PostList />,
-  },
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/posts",
+          element: <Posts />,
+          children: [],
+          loader: jsonPostsLoader,
+        },
+        {path: "/create-post",element: <CreatePost />},
+   
+        {
+          path: "/postslist",
+          element: <PostList />,
+        },
+      ],
+    },
 
   ]);
 
