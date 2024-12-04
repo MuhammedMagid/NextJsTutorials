@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Posts, { loader as jsonPostsLoader } from '../routes/posts.jsx'
 import './index.css'
 
-import CreatePost from "../routes/createPost.jsx";
+import CreatePost,{action} from "../routes/createPost.jsx";
 import PostList from "../components/postList.jsx";
 import MainLayout from "../routes/mainLayout.jsx";
 import Home from "../components/home.jsx";
@@ -26,7 +26,7 @@ import {RouterProvider , createBrowserRouter  } from "react-router-dom";
           children: [],
           loader: jsonPostsLoader,
         },
-        {path: "/create-post",element: <CreatePost />},
+        {path: "/create-post",element: <CreatePost />, action:action},
    
         {
           path: "/postslist",
