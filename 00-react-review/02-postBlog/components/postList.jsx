@@ -1,6 +1,5 @@
 import styles from "./postList.module.css"
 import Post from "./post";
-import { useState } from "react";
 
 import { useLoaderData } from "react-router-dom";
 
