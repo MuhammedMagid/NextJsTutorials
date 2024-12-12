@@ -6,8 +6,8 @@
 
 :root {
     --background-color: #121212;
-    --primary-color: #bb86fc;
-    --secondary-color: #03dac6;
+    --primary-color: #ffffff;
+    --secondary-color: #320068;
     --text-color: #e0e0e0;
     --text-secondary-color: #b0b0b0;
     --border-color: #2c2c2c;
@@ -32,7 +32,6 @@ a {
 }
 
 a:hover {
-    color: var(--secondary-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
