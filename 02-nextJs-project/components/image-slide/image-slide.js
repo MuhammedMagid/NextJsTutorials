@@ -14,7 +14,7 @@ const SlideImage = ({ images }) => {
   }, [images.length]);
 
   return (
-    <div className={style.carousel} >
+    <div className={style.slides} >
       <Image
         src={images[currentImageIndex]}
         alt={`Slide Image ${currentImageIndex + 1}`}

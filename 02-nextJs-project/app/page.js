@@ -14,8 +14,10 @@ export default function Home() {
   return (  
     <main>
 
+      <main > 
       <HeroSection />
-      <SlideImage images={[image1, image2 , image3, image4, image5]} />
+      </main>
+
 
     </main>
   );

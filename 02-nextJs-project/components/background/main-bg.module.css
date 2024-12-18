@@ -1,11 +1,25 @@
+/* main-bg.module.css */
 .background {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    filter: blur(5px); /* Adds a subtle blur effect */
-    opacity: 0.8; /* Adjusts the opacity for a layered effect */
-}
+    z-index: -1; /* Ensures the background is behind the content */
+    transition: all 0.5s ease-in-out; /* Optional smooth transition for the background */
+  }
+  
+  /* If you want to add a subtle zoom effect */
+  .background rect {
+    animation: zoomIn 60s infinite alternate;
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
   

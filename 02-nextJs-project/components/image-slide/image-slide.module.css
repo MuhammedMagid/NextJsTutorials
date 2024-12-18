@@ -1,0 +1,43 @@
+/* The container for the images */
+.slides {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 3px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(101, 100, 100, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Style for the image, applying the fade-in-out effect */
+  .slides img {
+    object-fit: cover;
+    width: 85%;
+    height: 100%;
+    border-radius: 50%;
+    transition: rotate 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(90, 87, 87, 0.1);
+}
+  
+  /* Keyframes for the fade effect */
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+  
