@@ -18,7 +18,7 @@ const DishCard =({ title, slug: dishId, image, summary, creator })=>{
       <div className={classes.content}>
         <p className={classes.summary}>{summary}</p>
         <div className={classes.actions}>
-          <Link href={`/meals/${dishId}`}>View Details</Link>
+          <Link href={`/dishes/${dishId}`}>View Details</Link>
         </div>
       </div>
     </article>

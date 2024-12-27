@@ -8,3 +8,9 @@ export async function getAllDishes() {
     const meals = stmt.all();
     return meals;
 }
+
+export  function getDish(slug) {
+    const stmt = db.prepare('SELECT * FROM meals WHERE slug= ?');
+    const dish = stmt.get(slug);
+    return dish;
+}
