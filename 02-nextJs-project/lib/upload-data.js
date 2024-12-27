@@ -2,13 +2,17 @@
 
 export async function uploadData(formData) {
     const dish = {
-      dishName: formData.get('dishName'),
-      summary: formData.get('description'),
-      instructions: formData.get('steps'),
-      image: formData.get('image'),
       creator: formData.get('name'),
-      creator_email: formData.get('email'),
+      email: formData.get('email'),
+      title: formData.get('dishName'),
+      country: formData.get('country'),
+      summary: formData.get('description'),
+      ingredients: formData.get('ingredients'),
+      constructions: formData.get('steps'),
+      slug: formData.get('tags'),
+      image: formData.get('image')
 
     };
     console.log(dish);
     }
+ 

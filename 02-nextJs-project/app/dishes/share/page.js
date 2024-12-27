@@ -11,7 +11,8 @@ const countryOptions = [
   // Add more countries
 ];
 
-const ShareDish = () => {
+const ShareDishPage = () => {
+ 
 
 
   /*
@@ -103,4 +104,4 @@ const ShareDish = () => {
   );
 };
 
-export default ShareDish;
+export default ShareDishPage;
