@@ -1,10 +1,52 @@
-import Link from "next/link"; 
-import style from "./hub.module.css"; // Optional, for additional styling
+import {Link} from "next/link";
 import HubCard from "@/components/hub-card/hub-card";
+
+const cuisines = [
+  {
+    header: "African Cuisine",
+    description: "Explore the rich and diverse flavors of African cuisine, from spicy stews to savory grilled meats.",
+    link: "/hub/african"
+  },
+  {
+    header: "Asian Cuisine",
+    description: "Discover the vibrant and varied dishes of Asia, from sushi to curries and everything in between.",
+    link: "/hub/asian"
+  },
+  {
+    header: "European Cuisine",
+    description: "Indulge in the classic and contemporary flavors of Europe, from pasta to pastries.",
+    link: "/hub/european"
+  },
+  {
+    header: "Latin American Cuisine",
+    description: "Experience the bold and spicy tastes of Latin America, from tacos to empanadas.",
+    link: "/hub/latin-american"
+  },
+  {
+    header: "North American Cuisine",
+    description: "Enjoy the diverse and delicious dishes of North America, from burgers to poutine.",
+    link: "/hub/north-american"
+  },
+  {
+    header: "Caribbean Cuisine",
+    description: "Savor the tropical and flavorful dishes of the Caribbean, from jerk chicken to plantains.",
+    link: "/hub/caribbean"
+  },
+  {
+    header: "Middle Eastern Cuisine",
+    description: "Relish the aromatic and savory dishes of the Middle East, from hummus to kebabs.",
+    link: "/hub/middle-eastern"
+  },
+  {
+    header: "Oceanian Cuisine",
+    description: "Taste the fresh and unique flavors of Oceania, from seafood to tropical fruits.",
+    link: "/hub/oceanian"
+  }
+];
 
 const Hub = () => {
   return (
-    <main className="py-16 px-6 sm:px-12 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white m">
+    <main className="py-16 px-6 sm:px-12 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white">
       <div className="container mx-auto text-center">
         <h1 className="text-5xl font-extrabold mb-6 leading-tight text-yellow-400">
           Welcome to the <span className="text-orange-500">Cuisine Hub</span> 🌍
@@ -14,23 +56,11 @@ const Hub = () => {
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          <HubCard  header="Asian Cuisine" description="Vibrant, flavorful, and full of variety. Discover recipes from China, Japan, India, and beyond!" link="/hub/asian"/>
-          <HubCard  header="Mediterranean Flavors" description="Healthy, fresh, and aromatic dishes full of love. From Greece to Morocco, find your new favorite dish." link="/hub/mediterranean"/>
-          <HubCard  header="Indian Cuisine" description="Spice, flavors, and a rich heritage. From the vibrant streets of India, discover the rich culinary heritage of this country." link="/hub/indian"/>
-
-          <HubCard  header="Mediterranean Flavors" description="Healthy, fresh, and aromatic dishes full of love. From Greece to Morocco, find your new favorite dish." link="/hub/mediterranean"/>
-          <HubCard  header="Latin American Spice" description="Bold, spicy, and full of zest. Journey through Latin American kitchens with recipes from Mexico, Brazil, and more." link="/hub/latin-american"/>
-
-          <HubCard  header="Mediterranean Flavors" description="Healthy, fresh, and aromatic dishes full of love. From Greece to Morocco, find your new favorite dish." link="/hub/mediterranean"/>
-          <HubCard  header="Latin American Spice" description="Bold, spicy, and full of zest. Journey through Latin American kitchens with recipes from Mexico, Brazil, and more." link="/hub/latin-american"/>
-
-          <HubCard  header="Mediterranean Flavors" description="Healthy, fresh, and aromatic dishes full of love. From Greece to Morocco, find your new favorite dish." link="/hub/mediterranean"/>
-          <HubCard  header="Latin American Spice" description="Bold, spicy, and full of zest. Journey through Latin American kitchens with recipes from Mexico, Brazil, and more." link="/hub/latin-american"/>
-
-          <HubCard  header="Mediterranean Flavors" description="Healthy, fresh, and aromatic dishes full of love. From Greece to Morocco, find your new favorite dish." link="/hub/mediterranean"/>
-          <HubCard  header="Latin American Spice" description="Bold, spicy, and full of zest. Journey through Latin American kitchens with recipes from Mexico, Brazil, and more." link="/hub/latin-american"/>
-          
+          {cuisines.map((cuisine, index) => (
+            <div key={index} href={cuisine.link}>
+                <HubCard header={cuisine.header} description={cuisine.description} link={cuisine.link} />
+            </div>
+          ))}
         </div>
 
         <div className="mt-12">

@@ -1,39 +1,52 @@
+'use client'
+
 import { uploadData } from "@/lib/upload-data";
+import SubmissionStatus from "@/components/dishes/submission-status";
+
+import Select from "react-select";
 
 
-const countryOptions = [
-  { value: 'egypt', label: 'Egypt' },
-  { value: 'italy', label: 'Italy' },
-  { value: 'mexico', label: 'Mexico' },
-  { value: 'india', label: 'India' },
-  { value: 'japan', label: 'Japan' },
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    backgroundColor: '#2d3748', // Dark background color
+    color: '#fff', // White text color
+    borderColor: '#4a5568', // Darker border color
+  }),
+  menu: (provided) => ({
+    ...provided,
+    backgroundColor: '#2d3748', // Dark background color for the dropdown
+    color: '#fff', // White text color for the dropdown
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: '#fff', // White text color for the selected value
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: '#a0aec0', // Light gray placeholder color
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.isSelected ? '#4a5568' : '#2d3748', // Darker background for selected option
+    color: '#fff', // White text color for options
+    '&:hover': {
+      backgroundColor: '#4a5568', // Darker background on hover
+    },
+  }),
+};
 
-  // Add more countries
+const cuisines = [
+  { value: 'african-cuisine', label: 'African Cuisine' },
+  { value: 'asian-cuisine', label: 'Asian Cuisine' },
+  { value: 'european-cuisine', label: 'European Cuisine' },
+  { value: 'latin-american-cuisine', label: 'Latin American Cuisine' },
+  { value: 'north-american-cuisine', label: 'North American Cuisine' },
+  { value: 'caribbean-cuisine', label: 'Caribbean Cuisine' },
+  { value: 'middle-eastern-cuisine', label: 'Middle Eastern Cuisine' },
+  { value: 'oceanian-cuisine', label: 'Oceanian Cuisine' }
 ];
-
 const ShareDishPage = () => {
- 
-
-
-  /*
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-*/
-  const handleCountryChange = (selectedOption) => {
-    setFormData({ ...formData, country: selectedOption });
-  };
-/*
-  const handleImageChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData); // Handle form submission here (e.g., API call)
-  };
-  */
-
 
 
   return (
@@ -58,20 +71,19 @@ const ShareDishPage = () => {
           <label htmlFor="dishName" className="block text-gray-400 font-bold mb-2">Dish Name:</label>
           <input type="text" id="dishName" name="dishName"  className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-orange-300" required />
         </div>
-          {/* Add country selector here 
            
         <div className="mb-4">
-          <label htmlFor="country" className="block  text-gray-400 font-bold mb-2">Cuisine Country:</label>
-          <Select
-            onChange={handleCountryChange}
-            options={countryOptions}
+          <label htmlFor="country" className="block  text-gray-400 font-bold mb-2">Cuisine:</label>
+          <Select 
+            options={cuisines}
             className="w-full"
             classNamePrefix="react-select"
-            placeholder="Select a country"
+            placeholder="Select a cuisine"
+            styles={customStyles}
             required
           />
         </div>
-        */}
+        
 
         <div className="mb-4">
           <label htmlFor="description" className="block text-gray-400 font-bold mb-2">Short Description:</label>
@@ -98,7 +110,8 @@ const ShareDishPage = () => {
           <input type="file" id="image" name="image" className="w-full " accept="image/*" />
         </div>
 
-        <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-orange-300">Share Dish</button>
+        <SubmissionStatus />
+        
       </form>
     </div>
   );
