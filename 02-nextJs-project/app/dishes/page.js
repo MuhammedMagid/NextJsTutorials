@@ -2,6 +2,11 @@ import DashDish from "@/components/dishes/dash-dish";
 import { getAllDishes } from "@/lib/meals";
 import Link from "next/link";
 
+export const metadata = {
+    title: ' Browse Dishes',
+    description: 'Embark on a culinary adventure and savor the tastes of the world, from beloved classics to bold and exotic flavors.'
+}
+
 const Dishes = async () => {
     const meals = await getAllDishes();
 

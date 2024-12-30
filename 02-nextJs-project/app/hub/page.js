@@ -1,5 +1,9 @@
-import {Link} from "next/link";
 import HubCard from "@/components/hub-card/hub-card";
+
+export const metadata = {
+  title: 'Cuisine Hub',
+  description: 'Explore culinary delights from every corner of the globe! From savory to sweet, immerse yourself in diverse flavors, recipes, and cooking techniques.',
+};
 
 const cuisines = [
   {

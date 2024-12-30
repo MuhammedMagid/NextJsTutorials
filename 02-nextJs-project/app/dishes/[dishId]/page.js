@@ -1,6 +1,27 @@
 import { getDish } from "@/lib/meals";
 import Image from "next/image";
 
+
+export async function generateMetadata({ params }) {
+  const dish = await getDish(params.dishId);
+  return {
+    title: dish.title,
+    description: dish.summary,
+    openGraph: {
+      title: dish.title,
+      description: dish.summary,
+      images: [
+        {
+          url: dish.image,
+          width: 800,
+          height: 600,
+          alt: dish.title,
+        },
+      ],
+    },
+  };
+}
+
 const DishPage = ({ params }) => {
   const dish = getDish(params.dishId);
   return (

@@ -1,5 +1,6 @@
 'use server'
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 import { addDish } from "./meals";  
 
@@ -24,6 +25,7 @@ export async function uploadData(formData) {
         
       }
     await addDish(dish);
+    revalidatePath('/dishes');
     redirect('/dishes');
     }
  

@@ -2,8 +2,10 @@
 
 import { uploadData } from "@/lib/upload-data";
 import SubmissionStatus from "@/components/dishes/submission-status";
-
 import Select from "react-select";
+
+//meta data for the share dish page
+
 
 
 const customStyles = {
@@ -110,8 +112,7 @@ const ShareDishPage = () => {
           <input type="file" id="image" name="image" className="w-full " accept="image/*" />
         </div>
 
-        <SubmissionStatus />
-        
+        <button type="submit" className="w-full bg-orange-500 text-white font-bold py-2 px-4 rounded hover:bg-orange-600">Share Dish</button>        
       </form>
     </div>
   );
