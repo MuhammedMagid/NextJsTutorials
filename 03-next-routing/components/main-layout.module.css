@@ -1,0 +1,43 @@
+.container {
+  background: #242323;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.nav {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+
+.ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+
+
+.li {
+  margin: 0;
+}
+
+
+.link {
+  text-decoration: none;
+  color: #fcfcfc;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+
+.link:hover {
+  color: #0070f3;
+}
